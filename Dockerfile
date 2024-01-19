@@ -1,14 +1,13 @@
-FROM node:18.17.1
-
-WORKDIR /app
-
-COPY package.json .
-COPY index.js .
-COPY build .
+FROM node:18.18.2
 
 RUN npm install -g npm@9.1.3
-RUN npm install
 
-EXPOSE 8080
+ADD package.json .
+ADD index.js .
+ADD build .
+COPY . .
+Run npm install
 
-CMD ["node", "index.js"]
+EXPOSE  8080
+
+CMD [ "node",  "index.js" ]
